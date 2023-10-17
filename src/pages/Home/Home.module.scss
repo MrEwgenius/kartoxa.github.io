@@ -1,0 +1,29 @@
+.containerWrapper {
+    width: 1000px;
+    display: flex;
+    // background-color: #a77c7c;
+    justify-content: space-between;
+
+    margin: auto;
+    .containerHuman {
+        cursor: pointer;
+        padding: 40px;
+        border-radius: 20px;
+        background-color: #b9a5a5;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        &:hover {
+            img {
+                transition: all 0.2s;
+
+                transform: scale(1.1);
+            }
+        }
+        .text {
+            font-size: 30px;
+            font-weight: 600;
+        }
+    }
+}

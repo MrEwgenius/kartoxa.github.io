@@ -1,0 +1,14 @@
+.header {
+    height: 150px;
+    background-color: #7dc4c4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .headerText {
+        text-align: center;
+        font-size: 46px;
+        font-weight: 700;
+        background-color: #fff;
+        width: 500px;
+    }
+}
