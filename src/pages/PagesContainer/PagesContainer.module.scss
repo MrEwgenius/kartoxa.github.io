@@ -1,0 +1,13 @@
+.containerPagesContainer {
+    display: flex;
+    flex-direction: column;
+    // flex: 1;
+    min-height: 100vh;
+    .outlet {
+        background-color: #a74b4b;
+        flex: 1;
+    }
+    .footer {
+        background-color: #1bcf93;
+    }
+}
