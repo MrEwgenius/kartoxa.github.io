@@ -12,7 +12,6 @@ const Ranges: FC<RangesProps> = ({
     onChange
 }
 ) => {
-    // const [values, setValues] = useState([value])
 
     return (
         <div>
@@ -23,7 +22,7 @@ const Ranges: FC<RangesProps> = ({
                 values={[value]}
                 onChange={(newValues) => onChange(newValues[0])}
                 renderTrack={({ props, children }) => (
-                    <div 
+                    <div
                         className={styles.track}
                         {...props}
                     >
@@ -39,9 +38,6 @@ const Ranges: FC<RangesProps> = ({
                     />
                 )}
             />
-            {/* <output className={styles.output}>
-                {out}
-            </output> */}
         </div>
 
     );

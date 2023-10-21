@@ -4,13 +4,8 @@ import classNames from 'classnames';
 import styles from './Button.module.scss'
 
 
-export enum ButtonTypes {
-    Primary = 'primary',
-    Secondary = 'secondary',
 
-}
 type ButtonProps = {
-    type: ButtonTypes,
     title: string | ReactElement,
     onClick: () => void,
     disabled?: boolean,
@@ -19,22 +14,19 @@ type ButtonProps = {
 
 
 const Button: FC<ButtonProps> = ({
-    type,
     title,
     onClick,
     className,
-    disabled
 }) => {
 
-    const buttonStyle = styles[type]
 
     return (
-        <div
-            className={classNames(buttonStyle, className, { [styles.disabled]: disabled })}
-            onClick={!disabled ? onClick : undefined}
+        <button type='submit'
+            className={classNames(className, (styles.button))}
+            onClick={onClick}
         >
             {title}
-        </div>
+        </button>
     );
 }
 

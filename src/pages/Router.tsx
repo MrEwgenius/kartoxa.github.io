@@ -4,6 +4,7 @@ import Header from "./Header/Header";
 import PagesContainer from "./PagesContainer/PagesContainer";
 import Footer from "./Footer/Footer";
 import Men from "./Men/Men";
+import Women from "./Women/Women";
 
 
 export enum RoutesList {
@@ -26,12 +27,12 @@ const Router = () => {
                         element={<Home />}
                     />
                     <Route
-                        path={RoutesList.Women}
-                        element={<Header />}
-                    />
-                    <Route
                         path={RoutesList.Men}
                         element={<Men />}
+                    />
+                    <Route
+                        path={RoutesList.Women}
+                        element={<Women />}
                     />
                     <Route
                         path={RoutesList.Default}
