@@ -1,103 +1,112 @@
-.track {
-    border-radius: 10px;
-    background-color: #b35555;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-    height: 10px;
-}
-
-.thumb {
-    transition: all 0.1s;
-    background-color: #fff;
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    // border: 2px solid black;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
-    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
-}
-.output {
-    font-size: 40px;
-    color: #4d4949;
-}
-
-.row {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    padding: 20px 0;
-    border-bottom: 1px solid #e7e7e7;
-}
-.ranges {
-    width: 100%;
-}
-.containerMen {
+.containerWomen {
     max-width: 960px;
     margin: auto;
     display: flex;
     flex-direction: column;
-}
-.descrRow {
-    display: flex;
-    width: 200px;
-    font-size: 30px;
+
+    .row {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid #e7e7e7;
+
+        .descrRow {
+            width: 250px;
+            font-size: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .ranges {
+            width: 75%;
+        }
+        .select {
+            width: 75%;
+            border-radius: 5px;
+            height: 40px;
+            padding: 0 0 2px 0;
+            border: 1px solid rgb(175, 175, 175);
+            outline: none;
+            &:focus, :active {
+                border: 1px solid #e8972c;
+            }
+        }
+
+        .radioButtons {
+            display: flex;
+            justify-content: space-between;
+            input[type="radio"] {
+                display: none; /* Скрываем оригинальный инпут */
+            }
+            label {
+                cursor: pointer;
+                padding: 5px 20px 8px 20px;
+                background-color: rgb(255, 255, 255);
+                border: 1px solid rgb(255, 139, 30);
+            }
+            label:last-child {
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+            input:first-child + label {
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+            }
+
+            input[type="radio"]:checked + label {
+                background-color: rgb(255, 139, 30);
+                color: white;
+            }
+        }
+
+        .radioButtonsBoroda {
+            display: flex;
+            justify-content: space-between;
+            input[type="radio"] {
+                display: none;
+            }
+            label {
+                cursor: pointer;
+                display: block;
+                background-color: rgb(255, 255, 255);
+                border: 1px solid rgb(255, 139, 30);
+            }
+            label:last-child {
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+            input:first-child + label {
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+            }
+
+            input[type="radio"]:checked + label {
+                background-color: rgb(255, 139, 30);
+                color: white;
+            }
+        }
+    }
 }
 
-.radioButtons {
-    display: flex;
-    justify-content: space-between;
-}
+// .track {
+//     border-radius: 10px;
+//     background-color: #b35555;
+//     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+//     height: 10px;
+// }
 
-.radioButtons input[type="radio"] {
-    display: none; /* Скрываем оригинальный инпут */
-}
-
-.radioButtons label {
-    cursor: pointer;
-    padding: 5px 20px 8px 20px;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(255, 139, 30);
-}
-.radioButtons label:last-child {
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-}
-.radioButtons input:first-child + label {
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-}
-
-.radioButtons input[type="radio"]:checked + label {
-    background-color: rgb(255, 139, 30);
-    color: white;
-}
-
-.radioButtonsBoroda input[type="radio"] {
-    display: none; /* Скрываем оригинальный инпут */
-}
-.radioButtonsBoroda {
-    display: flex;
-    justify-content: space-between;
-}
-.radioButtonsBoroda label {
-    cursor: pointer;
-    // padding: 5px 20px 8px 20px;
-    display: block;
-    // height: 150px;
-    // width: 150px;
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(255, 139, 30);
-}
-.radioButtonsBoroda label:last-child {
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-}
-.radioButtonsBoroda input:first-child + label {
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-}
-
-.radioButtonsBoroda input[type="radio"]:checked + label {
-    background-color: rgb(255, 139, 30);
-    color: white;
-}
-
+// .thumb {
+//     transition: all 0.1s;
+//     background-color: #fff;
+//     height: 20px;
+//     width: 20px;
+//     border-radius: 50%;
+//     // border: 2px solid black;
+//     box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+//     background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.1));
+// }
+// .output {
+//     font-size: 40px;
+//     color: #4d4949;
+// }

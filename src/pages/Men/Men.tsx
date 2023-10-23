@@ -9,35 +9,25 @@ import Button from '../../components/Button/Button';
 
 const Men = () => {
 
-    const [valuesAge, setValuesAge] = useState([10])
-    const [valuesHeight, setValuesHeight] = useState([10])
+    const [valuesAge, setValuesAge] = useState([18])
+    const [valuesHeight, setValuesHeight] = useState([165])
+
     const handleAgeChange = (newAgeValue: number) => {
         setFormData({
             ...formData,
             valuesAge: newAgeValue,
         });
         setValuesAge([newAgeValue]);
-
     };
+
     const handleHeightChange = (newAgeValue: number) => {
         setFormData({
             ...formData,
             valuesHeight: newAgeValue,
         });
         setValuesHeight([newAgeValue]);
-
-
     };
 
-
-    const [formData, setFormData] = useState({
-        hairColor: '', // Изначально пустые значения
-        haircut: '',
-        beard: '',
-        body: '',
-        valuesAge: 10,
-        valuesHeight: 10
-    });
     const handleHaircutChange = (id: string) => {
         setFormData({
             ...formData,
@@ -62,39 +52,136 @@ const Men = () => {
             body: id,
         });
     };
+    const [formData, setFormData] = useState({
+        hairColor: 'блондин', // Изначально пустые значения
+        haircut: 'короткие',
+        beard: 'beard1',
+        body: 'body1',
+        valuesAge: 18,
+        valuesHeight: 172,
+    });
 
-    const handleFormSubmit = (event: any) => {
-        event.preventDefault();
+    
+//Считаем сколько мешков картошки мы стоим
 
-        // Все данные формы хранятся в formData
-        console.log(formData);
-        // Отправка данных, обработка и дальнейшие действия
-    };
+let potatoSacks = 0
+function calculatePotatoesForAge(age: number) {
+    // Пример формулы: за каждый год прибавляем 2 мешка картошки
+    return age * 2;
+}
+function calculatePotatoesForHeight(height: number) {
+    // Пример формулы: за каждый сантиметр прибавляем 0.5 мешка картошки
+    return height * 0.5;
+}
+const potatoesForAge = calculatePotatoesForAge(formData.valuesAge);
+const potatoesForHeight = calculatePotatoesForHeight(formData.valuesHeight);
+
+
+
+function calculatePotatoesForHairColor(color: string) {
+    switch (color) {
+        case "блондин":
+            return 5;
+        case "брюнет":
+            return 10;
+        case "рыжий":
+            return 15;
+        case "серые":
+            return 7;
+        case "русый":
+            return 12;
+        default:
+            return 0;
+    }
+}
+function calculatePotatoesForHaircut(haircut: string) {
+    switch (haircut) {
+        case "длиные":
+            return 15;
+        case "лысая":
+            return 2;
+        case "короткие":
+            return 5;
+        case "полубокс":
+            return 8;
+        default:
+            return 0;
+    }
+}
+function calculatePotatoesForBoobs(beard: string) {
+    switch (beard) {
+        case "beard1":
+            return 3;
+        case "beard2":
+            return 10;
+        case "beard3":
+            return 15;
+        case "beard4":
+            return 8;
+        default:
+            return 0;
+    }
+}
+function calculatePotatoesForBody(body: string) {
+    switch (body) {
+        case "body1":
+            return 10;
+        case "body2":
+            return 15;
+        case "body3":
+            return 20;
+        case "body4":
+            return 5;
+        default:
+            return 0;
+    }
+}
+const potatoesForHairColor = calculatePotatoesForHairColor(formData.hairColor);
+const potatoesForHaircut = calculatePotatoesForHaircut(formData.haircut);
+const potatoesForBoobs = calculatePotatoesForBoobs(formData.beard);
+const potatoesForBody = calculatePotatoesForBody(formData.body);
+
+potatoSacks += potatoesForAge;
+potatoSacks += potatoesForHeight;
+potatoSacks += potatoesForHairColor;
+potatoSacks += potatoesForHaircut;
+potatoSacks += potatoesForBoobs;
+potatoSacks += potatoesForBody;
+
+const handleFormSubmit = (event: any) => {
+    event.preventDefault();
+
+    // Все данные формы хранятся в formData
+    console.log(formData);
+    console.log(potatoSacks);
+
+};
     return (
         <div className={styles.containerMen} >
 
             <form onSubmit={handleFormSubmit}>
 
-                <div className={styles.row}>
+            <div className={styles.row}>
                     {/* values это наше значение по track которое динамически меняется */}
-                    <div className={styles.descrRow}>Возраст {valuesAge}</div>
-                    <div className={styles.ranges}><Ranges value={valuesAge[0]} onChange={(newValue) => handleAgeChange(newValue)} /></div>
+                    <div className={styles.descrRow}>Возраст <span>{valuesAge}</span></div>
+                    <div className={styles.ranges}><Ranges min={14} max={65} value={valuesAge[0]} onChange={(newValue) => handleAgeChange(newValue)} /></div>
                 </div>
 
 
                 <div className={styles.row}>
-                    <div className={styles.descrRow}>Рост(см){valuesHeight}</div>
-                    <div className={styles.ranges}><Ranges value={valuesHeight[0]} onChange={(newValue) => handleHeightChange(newValue)} /></div>
+                    <div className={styles.descrRow}>Рост(см)<span>{valuesHeight}</span></div>
+                    <div className={styles.ranges}><Ranges min={130} max={225} value={valuesHeight[0]} onChange={(newValue) => handleHeightChange(newValue)} /></div>
                 </div>
 
 
                 <div className={styles.row}>
                     <div className={styles.descrRow}>Цвет волос</div>
-                    <select onChange={handleHairColorChange}  name="awd" className={styles.ranges}>
-                        <option value="1">блондин(-ка)</option>
-                        <option value="2">брюнет(-ка)</option>
-                        <option value="3">рыжий(-ая)</option>
-                        <option value="4">серые</option>
+                    <select  onChange={handleHairColorChange} name="awd" className={styles.select}>
+                        <option value="блондин">блондин</option>
+                        <option value="брюнет">брюнет</option>
+                        <option value="рыжий">рыжий</option>
+                        <option value="серые">серые</option>
+                        <option value="русый">русый</option>
                     </select>
                 </div>
 
@@ -102,10 +189,10 @@ const Men = () => {
                 <div className={styles.row}>
                     <div className={styles.descrRow}>Стрижка</div>
                     <div className={styles.radioButtons}>
-                        <RadioButton onChange={handleHaircutChange} name='radio-button' id='haircut1' text='длиные' />
-                        <RadioButton onChange={handleHaircutChange} name='radio-button' id='haircut2' text='лысая' />
-                        <RadioButton onChange={handleHaircutChange} name='radio-button' id='haircut3' text='короткие' />
-                        <RadioButton onChange={handleHaircutChange} name='radio-button' id='haircut4' text='каре' />
+                        <RadioButton  onChange={handleHaircutChange} name='radio-button' id='длиные' text='длиные' />
+                        <RadioButton onChange={handleHaircutChange} name='radio-button' id='лысая' text='лысый' />
+                        <RadioButton checked onChange={handleHaircutChange} name='radio-button' id='короткие' text='короткие' />
+                        <RadioButton onChange={handleHaircutChange} name='radio-button' id='полубокс' text='полубокс' />
                     </div>
                 </div>
 
@@ -113,10 +200,10 @@ const Men = () => {
                 <div className={styles.row}>
                     <div className={styles.descrRow}>Борода</div>
                     <div className={styles.radioButtonsBoroda}>
-                        <RadioButton onChange={handleBeardChange} name='boroda' id='boroda1' text={<img src={require('../../img/beard.png')} alt='image' />} />
-                        <RadioButton onChange={handleBeardChange} name='boroda' id='boroda2' text={<img src={require('../../img/beard.png')} alt='image' />} />
-                        <RadioButton onChange={handleBeardChange} name='boroda' id='boroda3' text={<img src={require('../../img/beard.png')} alt='image' />} />
-                        <RadioButton onChange={handleBeardChange} name='boroda' id='boroda4' text={<img src={require('../../img/beard.png')} alt='image' />} />
+                        <RadioButton checked onChange={handleBeardChange} name='beard' id='beard1' text={<img src={require('../../img/beard.png')} alt='image' />} />
+                        <RadioButton onChange={handleBeardChange} name='beard' id='beard2' text={<img src={require('../../img/beard.png')} alt='image' />} />
+                        <RadioButton onChange={handleBeardChange} name='beard' id='beard3' text={<img src={require('../../img/beard.png')} alt='image' />} />
+                        <RadioButton onChange={handleBeardChange} name='beard' id='beard4' text={<img src={require('../../img/beard.png')} alt='image' />} />
                     </div>
                 </div>
 
@@ -124,21 +211,15 @@ const Men = () => {
                 <div className={styles.row}>
                     <div className={styles.descrRow}>Телосложение</div>
                     <div className={styles.radioButtonsBoroda}>
-                        <RadioButton onChange={handleBodyChange} name='body' id='body1' text={<img src={require('../../img/body-1.png')} alt='image' />} />
-                        <RadioButton onChange={handleBodyChange} checked name='body' id='body2' text={<img src={require('../../img/body-1.png')} alt='image' />} />
+                        <RadioButton checked onChange={handleBodyChange} name='body' id='body1' text={<img src={require('../../img/body-1.png')} alt='image' />} />
+                        <RadioButton onChange={handleBodyChange} name='body' id='body2' text={<img src={require('../../img/body-1.png')} alt='image' />} />
                         <RadioButton onChange={handleBodyChange} name='body' id='body3' text={<img src={require('../../img/body-1.png')} alt='image' />} />
                         <RadioButton onChange={handleBodyChange} name='body' id='body4' text={<img src={require('../../img/body-1.png')} alt='image' />} />
                     </div>
                 </div>
-                <Button title={'Рассчитать'} onClick={() => { }} />
+                <Button title={'Рассчитать'}  />
 
             </form>
-
-
-
-
-
-
         </div>
 
     );

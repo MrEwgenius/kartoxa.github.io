@@ -2,12 +2,12 @@ import React, { FC, ReactElement } from 'react';
 import classNames from 'classnames';
 
 import styles from './Button.module.scss'
+import { useNavigate } from 'react-router-dom';
 
 
 
 type ButtonProps = {
     title: string | ReactElement,
-    onClick: () => void,
     disabled?: boolean,
     className?: string
 }
@@ -15,15 +15,19 @@ type ButtonProps = {
 
 const Button: FC<ButtonProps> = ({
     title,
-    onClick,
     className,
 }) => {
 
+    const navigate = useNavigate()
+    const onTitleClick = () => {
+        navigate('/results')
+
+    }
 
     return (
         <button type='submit'
             className={classNames(className, (styles.button))}
-            onClick={onClick}
+            // onClick={onTitleClick}
         >
             {title}
         </button>

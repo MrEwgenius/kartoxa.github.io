@@ -5,11 +5,15 @@ import styles from './Ranges.module.scss'
 type RangesProps = {
     value: number; // Принимаем значение как пропс
     onChange: (newValues: number) => void; // Принимаем функцию обратного вызова как пропс
+    min?: number,
+    max?: number,
 };
 
 const Ranges: FC<RangesProps> = ({
     value,
-    onChange
+    onChange,
+    min,
+    max
 }
 ) => {
 
@@ -17,8 +21,8 @@ const Ranges: FC<RangesProps> = ({
         <div>
             <Range
                 step={1}
-                min={0}
-                max={100}
+                min={min}
+                max={max}
                 values={[value]}
                 onChange={(newValues) => onChange(newValues[0])}
                 renderTrack={({ props, children }) => (
