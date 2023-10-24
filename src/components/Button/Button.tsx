@@ -18,16 +18,11 @@ const Button: FC<ButtonProps> = ({
     className,
 }) => {
 
-    const navigate = useNavigate()
-    const onTitleClick = () => {
-        navigate('/results')
-
-    }
+    
 
     return (
         <button type='submit'
             className={classNames(className, (styles.button))}
-            // onClick={onTitleClick}
         >
             {title}
         </button>

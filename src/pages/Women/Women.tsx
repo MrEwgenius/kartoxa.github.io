@@ -3,10 +3,17 @@ import styles from './Women.module.scss'
 import Ranges from '../../components/Range/Ranges';
 import RadioButton from '../../components/RadioButton/RadioButton';
 import Button from '../../components/Button/Button';
+import { useDispatch } from 'react-redux';
+import { updatePotatoSacks } from '../../redux/reducers/formSlice';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Women = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate()
+
+
     const [valuesAge, setValuesAge] = useState([18])
     const [valuesHeight, setValuesHeight] = useState([165])
 
@@ -64,21 +71,15 @@ const Women = () => {
     });
 
 
-    //Считаем сколько мешков картошки мы стоим
 
-    let potatoSacks = 0
     function calculatePotatoesForAge(age: number) {
-        // Пример формулы: за каждый год прибавляем 2 мешка картошки
+        // за каждый год прибавляем 2 мешка картошки
         return age * 2;
     }
     function calculatePotatoesForHeight(height: number) {
-        // Пример формулы: за каждый сантиметр прибавляем 0.5 мешка картошки
+        // за каждый сантиметр прибавляем 0.5 мешка картошки
         return height * 0.5;
     }
-    const potatoesForAge = calculatePotatoesForAge(formData.valuesAge);
-    const potatoesForHeight = calculatePotatoesForHeight(formData.valuesHeight);
-
-
 
     function calculatePotatoesForHairColor(color: string) {
         switch (color) {
@@ -140,26 +141,37 @@ const Women = () => {
                 return 0;
         }
     }
-    const potatoesForHairColor = calculatePotatoesForHairColor(formData.hairColor);
-    const potatoesForHaircut = calculatePotatoesForHaircut(formData.haircut);
-    const potatoesForBoobs = calculatePotatoesForBoobs(formData.boobs);
-    const potatoesForBody = calculatePotatoesForBody(formData.body);
 
-    potatoSacks += potatoesForAge;
-    potatoSacks += potatoesForHeight;
-    potatoSacks += potatoesForHairColor;
-    potatoSacks += potatoesForHaircut;
-    potatoSacks += potatoesForBoobs;
-    potatoSacks += potatoesForBody;
 
+    const calculateAndUpdatePotatoSacks = () => {
+        const potatoesForAge = calculatePotatoesForAge(formData.valuesAge);
+        const potatoesForHeight = calculatePotatoesForHeight(formData.valuesHeight);
+        const potatoesForHairColor = calculatePotatoesForHairColor(formData.hairColor);
+        const potatoesForHaircut = calculatePotatoesForHaircut(formData.haircut);
+        const potatoesForBoobs = calculatePotatoesForBoobs(formData.boobs);
+        const potatoesForBody = calculatePotatoesForBody(formData.body);
+
+        const PotatoSacks =
+            potatoesForAge +
+            potatoesForHeight +
+            potatoesForHairColor +
+            potatoesForHaircut +
+            potatoesForBoobs +
+            potatoesForBody;
+
+        console.log(PotatoSacks);
+
+        dispatch(updatePotatoSacks(PotatoSacks));
+    };
     const handleFormSubmit = (event: any) => {
         event.preventDefault();
+        calculateAndUpdatePotatoSacks()
 
-        // Все данные формы хранятся в formData
         console.log(formData);
-        console.log(potatoSacks);
+        navigate('/results')
 
     };
+
     return (
         <div className={styles.containerWomen} >
 
@@ -234,11 +246,6 @@ const Women = () => {
                 <Button title={'Рассчитать'} />
 
             </form>
-
-
-
-
-
 
         </div>
 

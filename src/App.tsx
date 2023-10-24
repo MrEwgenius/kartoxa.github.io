@@ -1,14 +1,13 @@
 import React from 'react';
-import Button from './components/Button/Button';
-import Header from './pages/Header/Header';
-import Home from './pages/Home/Home';
-import Footer from './pages/Footer/Footer';
 import Router from './pages/Router';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 function App() {
     return (
         <div className="App">
-            <Router />
+                <Router />
+
         </div>
     );
 }
