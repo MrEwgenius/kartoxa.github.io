@@ -46,6 +46,12 @@ const Women = () => {
             hairColor: event.target.value,
         });
     }
+    const handleEyesColorChange = (event: any) => {
+        setFormData({
+            ...formData,
+            eyesColor: event.target.value,
+        });
+    }
 
     const handleboobsChange = (id: string) => {
         setFormData({
@@ -62,10 +68,11 @@ const Women = () => {
     };
 
     const [formData, setFormData] = useState({
-        hairColor: 'блондин(-ка)', // Изначально пустые значения
-        haircut: 'haircut1',
+        hairColor: 'блондинка', // Изначально пустые значения
+        haircut: 'длиные',
+        eyesColor: 'зелёный',
         boobs: 'boobs1',
-        body: 'body2',
+        body: 'худая',
         valuesAge: 18,
         valuesHeight: 165,
     });
@@ -74,7 +81,11 @@ const Women = () => {
 
     function calculatePotatoesForAge(age: number) {
         // за каждый год прибавляем 2 мешка картошки
-        return age * 2;
+        // return age * 2;
+        const basePotatoes = 100; // Базовое количество картошки
+        const reductionRate = 2; // Скорость уменьшения
+
+        return Math.max(basePotatoes - age * reductionRate, 0);
     }
     function calculatePotatoesForHeight(height: number) {
         // за каждый сантиметр прибавляем 0.5 мешка картошки
@@ -83,16 +94,34 @@ const Women = () => {
 
     function calculatePotatoesForHairColor(color: string) {
         switch (color) {
-            case "блондин(-ка)":
+            case "блондинка":
                 return 5;
-            case "брюнет(-ка)":
+            case "брюнетка":
                 return 10;
-            case "рыжий(-ая)":
+            case "рыжий":
                 return 15;
             case "серые":
-                return 7;
+                return 11;
             case "русый":
+                return 17;
+            case "цветной":
                 return 12;
+            default:
+                return 0;
+        }
+    }
+    function calculatePotatoesForEyesColor(color: string) {
+        switch (color) {
+            case "зелёный":
+                return 17;
+            case "карий":
+                return 5;
+            case "голубой":
+                return 15;
+            case "серый":
+                return 13;
+            case "гетерохромия":
+                return 25;
             default:
                 return 0;
         }
@@ -106,7 +135,7 @@ const Women = () => {
             case "короткие":
                 return 5;
             case "каре":
-                return 8;
+                return 10;
             default:
                 return 0;
         }
@@ -114,13 +143,13 @@ const Women = () => {
     function calculatePotatoesForBoobs(boobs: string) {
         switch (boobs) {
             case "boobs1":
-                return 3;
-            case "boobs2":
-                return 10;
-            case "boobs3":
-                return 15;
-            case "boobs4":
                 return 8;
+            case "boobs2":
+                return 13;
+            case "boobs3":
+                return 10;
+            case "boobs4":
+                return 7;
             default:
                 return 0;
         }
@@ -130,7 +159,7 @@ const Women = () => {
             case "худая":
                 return 10;
             case "обычная":
-                return 15;
+                return 13;
             case "спортивная":
                 return 20;
             case "полная":
@@ -147,21 +176,22 @@ const Women = () => {
         const potatoesForAge = calculatePotatoesForAge(formData.valuesAge);
         const potatoesForHeight = calculatePotatoesForHeight(formData.valuesHeight);
         const potatoesForHairColor = calculatePotatoesForHairColor(formData.hairColor);
+        const potatoesForEyesColor = calculatePotatoesForEyesColor(formData.eyesColor);
         const potatoesForHaircut = calculatePotatoesForHaircut(formData.haircut);
         const potatoesForBoobs = calculatePotatoesForBoobs(formData.boobs);
         const potatoesForBody = calculatePotatoesForBody(formData.body);
 
-        const PotatoSacks =
+        const potatoSacks =
             potatoesForAge +
             potatoesForHeight +
             potatoesForHairColor +
             potatoesForHaircut +
             potatoesForBoobs +
+            potatoesForEyesColor +
             potatoesForBody;
 
-        console.log(PotatoSacks);
 
-        dispatch(updatePotatoSacks(PotatoSacks));
+        dispatch(updatePotatoSacks(potatoSacks));
     };
     const handleFormSubmit = (event: any) => {
         event.preventDefault();
@@ -200,11 +230,12 @@ const Women = () => {
                 <div className={styles.row}>
                     <div className={styles.descrRow}>Цвет волос</div>
                     <select onChange={handleHairColorChange} name="awd" className={styles.select}>
-                        <option value="блондин(-ка)">блондин(-ка)</option>
-                        <option value="брюнет(-ка)">брюнет(-ка)</option>
-                        <option value="рыжий(-ая)">рыжий(-ая)</option>
+                        <option value="блондинка">блондинка</option>
+                        <option value="брюнетка">брюнетка</option>
+                        <option value="рыжий">рыжий</option>
                         <option value="серые">серые</option>
                         <option value="русый">русый</option>
+                        <option value="цветной">цветной</option>
                     </select>
                 </div>
 
@@ -219,10 +250,19 @@ const Women = () => {
                     </div>
                 </div>
 
-
+                <div className={styles.row}>
+                    <div className={styles.descrRow}>Цвет глаз</div>
+                    <select onChange={handleEyesColorChange} name="Eyes" className={styles.select}>
+                        <option value="зелёный">зелёный</option>
+                        <option value="карий">карий</option>
+                        <option value="голубой">голубой</option>
+                        <option value="серый">серый</option>
+                        <option value="гетерохромия">гетерохромия</option>
+                    </select>
+                </div>
                 <div className={styles.row}>
                     <div className={styles.descrRow}>Размер груди</div>
-                    <div className={styles.radioButtonsBoroda}>
+                    <div className={styles.radioButtonsBoobs}>
                         <RadioButton checked onChange={handleboobsChange} name='boobs' id='boobs1' text={<img src={require('../../img/boobs-a.png')} alt='image' />} />
                         <RadioButton onChange={handleboobsChange} name='boobs' id='boobs2' text={<img src={require('../../img/boobs-b.png')} alt='image' />} />
                         <RadioButton onChange={handleboobsChange} name='boobs' id='boobs3' text={<img src={require('../../img/boobs-c.png')} alt='image' />} />

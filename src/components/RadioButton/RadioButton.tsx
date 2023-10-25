@@ -16,14 +16,13 @@ const RadioButton: FC<RadioButtonProps> = ({
 }) => {
 
     const handleRadioChange = (event: ChangeEvent<HTMLInputElement>) => {
-        // const selectedId = event.target.id;
         onChange?.(event.target.id);
     };
     return (
-        <div>
+        <div className={styles.label}>
 
             <input onChange={handleRadioChange} defaultChecked={checked} type="radio" id={id} name={name} />
-            <label className={styles.label} htmlFor={id}>{text}</label>
+            <label  htmlFor={id}>{text}</label>
         </div>
     );
 }

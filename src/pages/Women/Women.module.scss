@@ -25,7 +25,7 @@
             width: 75%;
             border-radius: 5px;
             height: 40px;
-            padding: 0 0 2px 0;
+            padding: 0 0 2px 5px;
             border: 1px solid rgb(175, 175, 175);
             outline: none;
             &:focus, :active {
@@ -35,12 +35,17 @@
 
         .radioButtons {
             display: flex;
-            justify-content: space-between;
+            margin-left: 62px;
+            width: 100%;
             input[type="radio"] {
                 display: none; /* Скрываем оригинальный инпут */
             }
             label {
                 cursor: pointer;
+                display: block;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 padding: 5px 20px 8px 20px;
                 background-color: rgb(255, 255, 255);
                 border: 1px solid rgb(255, 139, 30);
@@ -60,15 +65,19 @@
             }
         }
 
-        .radioButtonsBoroda {
+        .radioButtonsBoobs {
             display: flex;
-            justify-content: space-between;
+            margin-left: 62px;
+            width: 100%;
             input[type="radio"] {
                 display: none;
             }
             label {
                 cursor: pointer;
                 display: block;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 background-color: rgb(255, 255, 255);
                 border: 1px solid rgb(255, 139, 30);
             }
