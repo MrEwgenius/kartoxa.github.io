@@ -10,8 +10,9 @@ const Footer = () => {
         >
             <div
                 className={styles.containerWrapper}
-            >
-                Политика конфиденциальности
+                >
+                <div>Политика конфиденциальности</div>
+                <div className={styles.link}><a target='blank' href="https://www.instagram.com/mr.ewgenius/">Контакты</a></div>
             </div>
         </div>
     );

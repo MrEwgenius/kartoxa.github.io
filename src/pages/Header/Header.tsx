@@ -8,6 +8,8 @@ const Header = () => {
             <div className={styles.headerText}  >
                 Сколько мешков картошки стоишь ты?
             </div>
+            <div className={styles.potatos}>
+            </div>
         </div>
     );
 }

@@ -1,14 +1,37 @@
 .header {
-    height: 150px;
-    background-color: #7dc4c4;
+    position: relative;
+    height: 220px;
+    background-image: url("../../img/potatoField.jpg");
+    background-size: no-repeat;
+
+    background-position: 0px 300px;
+    // background-position: center;
+
+    background-size: cover;
+
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 20px;
     .headerText {
-        text-align: center;
-        font-size: 46px;
+        // text-align: center;
+        font-size: 56px;
         font-weight: 700;
-        background-color: #fff;
-        width: 500px;
+        width: 750px;
+        color: rgb(255, 255, 255);
+    }
+    .potatos {
+        position: absolute;
+        width: 200px;
+        // display: block;
+        height: 100px;
+        top: 110px;
+        left: 50%;
+        background-image: url("../../img/potatos.png");
+        background-size: no-repeat;
+
+        background-position: center;
+
+        background-size: cover;
     }
 }

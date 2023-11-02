@@ -8,6 +8,7 @@ const PagesContainer = () => {
     return (
         <div className={styles.containerPagesContainer}>
             <Header />
+            
             <div className={styles.outlet}>
                 <Outlet />
 
