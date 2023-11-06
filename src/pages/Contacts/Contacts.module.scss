@@ -1,0 +1,26 @@
+.containerContacts {
+    width: 1000px;
+    margin: auto;
+    .containerWrapper {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        .groupContacts {
+            font-size: 18px;
+        }
+        .buttonHome {
+            font-size: 18px;
+            padding: 5px 10px 7px;
+            border-radius: 10px;
+            background-color: rgb(255, 145, 0);
+            cursor: pointer;
+            border: 1px solid rgb(194, 109, 13);
+            transition: all 0.2s;
+            &:hover {
+                background-color: #eb6d06;
+            }
+        }
+    }
+}
