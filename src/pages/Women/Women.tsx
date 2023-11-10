@@ -208,7 +208,6 @@ const Women = () => {
             <form onSubmit={handleFormSubmit}>
 
                 <div className={styles.row}>
-                    {/* values это наше значение по track которое динамически меняется */}
                     <div className={styles.descrRow}>Возраст <span>{valuesAge}</span></div>
                     <div className={styles.ranges}>
                         <Ranges
