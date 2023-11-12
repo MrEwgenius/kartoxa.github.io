@@ -1,28 +1,38 @@
 .header {
-    position: relative;
+    width: 100%;
     height: 220px;
+    position: relative;
     background-image: url("../../img/potatoField.jpg");
+
     background-size: no-repeat;
 
-    // background-position: 0px 300px;
     background-position: center;
 
     background-size: cover;
-
     display: flex;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
-    padding: 0 10px;
+    &:before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.171);
+    }
     @media (max-width: 660px) {
-    height: 180px;
-
+        height: 180px;
     }
     @media (max-width: 410px) {
         height: 130px;
-
     }
     .headerText {
+        position: relative;
         font-size: 56px;
         font-weight: 700;
         width: 750px;
@@ -31,6 +41,8 @@
             font-size: 46px;
         }
         @media (max-width: 550px) {
+            text-align: center;
+
             font-size: 36px;
         }
         @media (max-width: 410px) {

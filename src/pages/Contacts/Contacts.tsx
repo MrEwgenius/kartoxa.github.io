@@ -15,34 +15,45 @@ const Contacts = () => {
 
             <div className={styles.containerWrapper}>
 
-                <div className={styles.groupContacts}>nstagram: 
-                    <a
-                        target='blank'
-                        href='https://www.instagram.com/mr.ewgenius/'
-                    >
-                        https://www.instagram.com/mr.ewgenius/
-                    </a>
+                <div className={styles.groupContacts}><span>Instagram:</span>
+                    <div>
+                        <a
+                            target='blank'
+                            href='https://www.instagram.com/mr.ewgenius/'
+                        >
+                            Mr.Ewgenius
+                        </a>
+                    </div>
                 </div>
 
-                <div className={styles.groupContacts}>Email:
-                    <a
-                        href='#'
-                    >
-                        ebolynskii@mail.ru
-                    </a>
+                <div className={styles.groupContacts}>
+                    <span>Email:</span>
+                    <div>
+                        <a
+                            href='#'
+                        >
+                            ebolynskii@mail.ru
+                        </a>
+                    </div>
                 </div>
 
-                <div className={styles.groupContacts}>Email:
-                    <a
-                        target='blank'
-                        href='https://github.com/MrEwgenius'
-                    >
-                        https://github.com/MrEwgenius
-                    </a>
+                <div className={styles.groupContacts}>
+                    <span>GitHub:</span>
+                    <div>
+                        <a
+                            target='blank'
+                            href='https://github.com/MrEwgenius'
+                        >
+                            MrEwgenius
+                        </a>
+                    </div>
 
                 </div>
 
-                <div className={styles.groupContacts}>tg: @Badiiis</div>
+                <div className={styles.groupContacts}>
+                    <span>tg:</span>
+                    @Badiiis
+                </div>
                 <button onClick={ClickOnHome} className={styles.buttonHome}>Вернуться к калькулятору</button>
 
 

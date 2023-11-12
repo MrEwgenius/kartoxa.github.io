@@ -14,8 +14,8 @@ export enum RoutesList {
     Header = '/header',
     Women = '/women',
     Men = '/men',
-    Results= '/results',
-    Contacts= '/contacts',
+    Results = '/results',
+    Contacts = '/contacts',
     Default = '*',
 
 }
@@ -23,7 +23,7 @@ export enum RoutesList {
 const Router = () => {
 
     return (
-        <BrowserRouter>
+        <BrowserRouter basename="/kartoxa.github.io">
             <Routes>
                 <Route path={RoutesList.Home} element={<PagesContainer />} >
                     <Route

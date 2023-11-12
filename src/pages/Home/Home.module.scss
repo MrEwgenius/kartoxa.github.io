@@ -7,7 +7,7 @@
         margin: 0 auto 20px;
         font-size: 26px;
         font-weight: 400;
-        color: rgb(44, 44, 44);
+        color: #6b6b6b;
         padding: 0 10px;
         @media (max-width: 660px) {
             font-size: 20px;
@@ -26,6 +26,7 @@
             padding: 20px 40px 20px 40px;
             border-radius: 20px;
             background-color: #ade0dc;
+            background-color: #9cf1ea;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -34,6 +35,7 @@
             overflow: hidden;
             img {
                 margin-top: -20px;
+                object-fit: cover;
             }
             
             @media (max-width: 1030px) {
@@ -84,7 +86,7 @@
                 }
             }
             .text {
-                color: #d67d17;
+                color: #ee8610;
                 font-size: 30px;
                 font-weight: 600;
                 text-align: center;

@@ -1,14 +1,26 @@
 .containerContacts {
-    width: 1000px;
     margin: auto;
+    padding: 0 15px;
     .containerWrapper {
-        margin-top: 40px;
         display: flex;
         flex-direction: column;
-        gap: 20px;
         align-items: center;
+        gap: 20px;
+        @media (max-width: 500px) {
+            // display: block;
+        }
         .groupContacts {
+            text-align: center;
             font-size: 18px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            span{
+            margin-right: 10px;
+            }
+            @media (max-width: 500px) {
+                // display: block;
+            }
         }
         .buttonHome {
             font-size: 18px;
