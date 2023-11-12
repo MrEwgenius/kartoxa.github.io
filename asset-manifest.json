@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/kartoxa.github.io/static/css/main.7dade08b.css",
-    "main.js": "/kartoxa.github.io/static/js/main.084ef074.js",
+    "main.js": "/kartoxa.github.io/static/js/main.96946c3b.js",
     "static/media/potatos.png": "/kartoxa.github.io/static/media/potatos.f1c20e9a4b1c1881cf56.png",
     "static/media/potatoField.jpg": "/kartoxa.github.io/static/media/potatoField.30e5843e183af42922e3.jpg",
     "index.html": "/kartoxa.github.io/index.html",
     "main.7dade08b.css.map": "/kartoxa.github.io/static/css/main.7dade08b.css.map",
-    "main.084ef074.js.map": "/kartoxa.github.io/static/js/main.084ef074.js.map"
+    "main.96946c3b.js.map": "/kartoxa.github.io/static/js/main.96946c3b.js.map"
   },
   "entrypoints": [
     "static/css/main.7dade08b.css",
-    "static/js/main.084ef074.js"
+    "static/js/main.96946c3b.js"
   ]
 }
