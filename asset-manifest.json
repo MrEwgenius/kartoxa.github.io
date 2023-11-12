@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/kartoxa.github.io/static/css/main.2c6a01e4.css",
-    "main.js": "/kartoxa.github.io/static/js/main.e0585cf8.js",
+    "main.css": "/kartoxa.github.io/static/css/main.7dade08b.css",
+    "main.js": "/kartoxa.github.io/static/js/main.113a851d.js",
     "static/media/potatos.png": "/kartoxa.github.io/static/media/potatos.f1c20e9a4b1c1881cf56.png",
     "static/media/potatoField.jpg": "/kartoxa.github.io/static/media/potatoField.30e5843e183af42922e3.jpg",
     "index.html": "/kartoxa.github.io/index.html",
-    "main.2c6a01e4.css.map": "/kartoxa.github.io/static/css/main.2c6a01e4.css.map",
-    "main.e0585cf8.js.map": "/kartoxa.github.io/static/js/main.e0585cf8.js.map"
+    "main.7dade08b.css.map": "/kartoxa.github.io/static/css/main.7dade08b.css.map",
+    "main.113a851d.js.map": "/kartoxa.github.io/static/js/main.113a851d.js.map"
   },
   "entrypoints": [
-    "static/css/main.2c6a01e4.css",
-    "static/js/main.e0585cf8.js"
+    "static/css/main.7dade08b.css",
+    "static/js/main.113a851d.js"
   ]
 }
