@@ -29,6 +29,18 @@ const Ranges: FC<RangesProps> = ({
                     <div
                         className={styles.track}
                         {...props}
+                        style={{
+                            ...props.style,
+                            height: '6px',
+                            width: '100%',
+                            background: getTrackBackground({
+                                values: [value],
+                                min: min || 0,
+                                max: max || 100,
+                                colors: ['rgb(255, 139, 30)', '#ccc'], // добавленные цвета
+                
+                            }),
+                        }}
                     >
                         {children}
                     </div>
